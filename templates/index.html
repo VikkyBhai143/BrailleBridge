@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4" tabindex="0">Digital Braille Converter</h1>
+                
+                <div class="alert alert-info" role="alert" tabindex="0">
+                    Convert text, PDFs, and images to Braille. Upload a file or enter text directly.
+                </div>
+
+                <form id="conversionForm" class="mb-4">
+                    <div class="mb-3">
+                        <label for="textInput" class="form-label">Enter Text</label>
+                        <textarea 
+                            class="form-control" 
+                            id="textInput" 
+                            rows="4"
+                            aria-label="Text to convert"
+                            placeholder="Type or paste your text here"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">Or Upload File</label>
+                        <input 
+                            type="file" 
+                            class="form-control" 
+                            id="fileInput"
+                            accept=".txt,.pdf,.png,.jpg,.jpeg"
+                            aria-label="Upload file">
+                        <div class="form-text" tabindex="0">
+                            Supported formats: TXT, PDF, PNG, JPG (Max 16MB)
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button 
+                            type="submit" 
+                            class="btn btn-primary"
+                            id="convertBtn">
+                            Convert to Braille
+                        </button>
+                    </div>
+                </form>
+
+                <div id="result" class="d-none">
+                    <h2 class="h4 mb-3" tabindex="0">Conversion Result</h2>
+                    
+                    <div class="mb-3">
+                        <label for="detectedText" class="form-label">Detected Text</label>
+                        <textarea 
+                            class="form-control" 
+                            id="detectedText" 
+                            rows="3" 
+                            readonly
+                            aria-label="Detected text"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="brailleOutput" class="form-label">Braille Output</label>
+                        <textarea 
+                            class="form-control" 
+                            id="brailleOutput" 
+                            rows="3" 
+                            readonly
+                            aria-label="Braille output"></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button 
+                            type="button" 
+                            class="btn btn-secondary"
+                            onclick="copyToClipboard('brailleOutput')"
+                            aria-label="Copy Braille to clipboard">
+                            Copy Braille
+                        </button>
+                    </div>
+                </div>
+
+                <div 
+                    id="errorMessage" 
+                    class="alert alert-danger d-none" 
+                    role="alert"
+                    tabindex="0">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
