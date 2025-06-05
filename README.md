@@ -1,66 +1,60 @@
-(BrailleBridge)
-👨‍💻 Hi everyone! Let me walk you through my Day 19 project from the "30 Days, 30 Projects" challenge — BrailleBridge, an AI-powered Digital Braille Converter designed for visually impaired users.
+**🦯 Day 19/30: BrailleBridge — AI-Powered Digital Braille Converter**
+👨‍💻 “Accessibility is not a feature, it's a fundamental right.”
 
-📁 Folder Structure
+For Day 19 of my "30 Days, 30 Projects" challenge, I built BrailleBridge — a web app that converts text, PDFs, and images into Braille Unicode, making digital content more accessible to visually impaired users around the globe.
+
+🔍 Problem
+Millions of visually impaired individuals face barriers accessing digital content that's not available in Braille format.
+
+💡 Solution
+BrailleBridge uses OCR + AI to extract text from:
+
+📄 Uploaded PDFs
+
+🖼️ Images
+
+✍️ Typed content
+
+...and instantly converts it into Braille Unicode, readable through assistive tools and embossers.
+
+🧠 How It Works
+📁 Folder Structure:
+
 pgsql
 Copy
 Edit
 BrailleBridge/
-├── app.py               👈 Main Flask backend file (app logic & routing)
-├── main.py              👈 Entry point (used by Replit or external servers)
-├── ocr_handler.py       👈 Handles OCR (text from image/PDF)
-├── static/              👈 CSS, JS, images (frontend assets)
-├── templates/           👈 HTML files (Flask uses Jinja2)
-├── pyproject.toml       👈 Project metadata and dependencies
-└── uv.lock / .replit    👈 Replit deployment configs
-🧠 How it Works
-app.py: This is the heart of the backend.
+├── app.py           # Main Flask backend
+├── main.py          # Entry point for external deploy
+├── ocr_handler.py   # Handles OCR & Braille conversion
+├── templates/       # HTML frontend
+├── static/          # CSS + JS assets
+🧩 Key Components:
 
-It sets up Flask.
-
-Handles routes like / and /convert.
-
-Receives uploaded PDFs/images or text input.
-
-Passes them to ocr_handler.py for processing.
+app.py: Manages routes like / and /convert
 
 ocr_handler.py:
 
-Uses pytesseract for OCR.
+🔍 pytesseract for OCR
 
-Uses PyPDF2 to extract text from PDFs.
+📄 PyPDF2 for PDF parsing
 
-Then converts that text into Braille Unicode format using custom logic.
+🔠 Braille conversion logic
 
-templates/index.html (inside templates folder):
+index.html: UI with dark mode, input forms & result area
 
-The web interface the user interacts with — includes:
+⚙️ Features
+✅ Text ➡ Braille
+✅ Image ➡ Braille (via OCR)
+✅ PDF ➡ Braille (via parsing)
+✅ Unicode Braille Output
+✅ Dark theme for accessibility
 
-Text input box
+🔮 Coming Next
+🌐 Real-time Website ➡ Braille
 
-File upload
+🌍 Support for Multiple Braille Standards
 
-Output preview
+🧠 Advanced OCR (low-quality scans)
 
-Dark theme for accessibility
-
-static/:
-
-Holds styles, custom icons, and additional scripts.
-
-🧪 Features in This Prototype
-Text to Braille
-
-Image to Braille (via OCR)
-
-PDF to Braille (via PyPDF2)
-
-Dark Mode UI
-
-Unicode Braille Output
-
-🔧 Future Add-ons
-✅ Real-time website conversion
-✅ Multiple Braille standards
-✅ Enhanced OCR for low-quality images
-✅ Batch processing (multiple files at once)
+📚 Batch Document Processing
